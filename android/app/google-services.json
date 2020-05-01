@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "48120110597",
+    "firebase_url": "https://credit-transfer-app-321f1.firebaseio.com",
+    "project_id": "credit-transfer-app-321f1",
+    "storage_bucket": "credit-transfer-app-321f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48120110597:android:68de139b527136846f466c",
+        "android_client_info": {
+          "package_name": "com.example.credittransferapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48120110597-06pphl3qsbub2dfp0sar1qaq36m2vck2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCURJ-BpLbGZOXT9Vv0mX2bzOfklhs70wY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48120110597-06pphl3qsbub2dfp0sar1qaq36m2vck2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
