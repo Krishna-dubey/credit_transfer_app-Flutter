@@ -2,6 +2,21 @@
 
 A new Flutter application.
 
+Firebase features used:
+- Firestore
+- Authentication
+- Storage
+
+Flutter concepts used:
+- Stateless Widget
+- Stateful Widget
+- UI components like Container, Row, Column, Fab button, Bottom Navigation bar, ListView, Stack, Image(network,file), Card, Buttons, Icons, etc.
+- Stream
+- Provider
+
+Get apk file and Demo video Here:
+https://drive.google.com/drive/folders/1nxxwOw44TzwD94vCpi9PuJVHct001apB?usp=sharing
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
