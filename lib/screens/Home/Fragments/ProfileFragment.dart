@@ -82,110 +82,112 @@ class _ProfileFragmentState extends State<ProfileFragment> {
       });
     }
 
-    return Container(
-      child: Column(
-        children: <Widget>[
-          SizedBox(height: 50),
-          Center(
-             child: Container(
-               height: 140,
-               child: Stack(
-                 children: <Widget>[
-                   CircleAvatar(
-                     backgroundImage: NetworkImage(user.imageUrl),
-                     radius: 60,
-                   ),
-                   Positioned(
-                     bottom: 15,
-                     right: 2,
-                     child: SizedBox(
-                       height: 40,
-                       width: 40,
-                       child: FloatingActionButton(
-                         backgroundColor: Colors.brown[900],
-                         onPressed: () async{
-                           await pickImage();
-                           if(_imageFile!=null){
-                             showDialog(context: context,builder: (context){
-                               return Dialog(
-                                 child: Column(
-                                   mainAxisSize: MainAxisSize.min,
-                                   children: <Widget>[
-                                     Container(
-                                       margin: EdgeInsets.fromLTRB(20,20,20,0),
-                                         child: Image.file(_imageFile)
-                                     ),
-                                     Container(
-                                       margin: EdgeInsets.all(20),
-                                       child: RaisedButton(
-                                         onPressed: () async{
-                                           await startUpload('profileImages/${user.uid}/${user.uid}.png',_imageFile,user.uid,context);
-                                         },
-                                         child: Text("Upload",style: TextStyle(color: Colors.white),),
-                                         color: Colors.brown[900],
-                                       ),
-                                     )
-                                   ],
-                                 ),
-                               );
-                             });
-                           }
-
-                         },
-                         child: Icon(Icons.add),
-                       ),
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: 50),
+            Center(
+               child: Container(
+                 height: 140,
+                 child: Stack(
+                   children: <Widget>[
+                     CircleAvatar(
+                       backgroundImage: NetworkImage(user.imageUrl),
+                       radius: 60,
                      ),
-                   )
-                 ],
-               ),
-             )
-          ),
-          SizedBox(height: 5,),
-          Center(
-            child: Text(
-              user.name,
-              style: TextStyle(
-                  fontSize: 20,
-                  fontStyle: FontStyle.italic
+                     Positioned(
+                       bottom: 15,
+                       right: 2,
+                       child: SizedBox(
+                         height: 40,
+                         width: 40,
+                         child: FloatingActionButton(
+                           backgroundColor: Colors.brown[900],
+                           onPressed: () async{
+                             await pickImage();
+                             if(_imageFile!=null){
+                               showDialog(context: context,builder: (context){
+                                 return Dialog(
+                                   child: Column(
+                                     mainAxisSize: MainAxisSize.min,
+                                     children: <Widget>[
+                                       Container(
+                                         margin: EdgeInsets.fromLTRB(20,20,20,0),
+                                           child: Image.file(_imageFile)
+                                       ),
+                                       Container(
+                                         margin: EdgeInsets.all(20),
+                                         child: RaisedButton(
+                                           onPressed: () async{
+                                             await startUpload('profileImages/${user.uid}/${user.uid}.png',_imageFile,user.uid,context);
+                                           },
+                                           child: Text("Upload",style: TextStyle(color: Colors.white),),
+                                           color: Colors.brown[900],
+                                         ),
+                                       )
+                                     ],
+                                   ),
+                                 );
+                               });
+                             }
+
+                           },
+                           child: Icon(Icons.add),
+                         ),
+                       ),
+                     )
+                   ],
+                 ),
+               )
+            ),
+            SizedBox(height: 5,),
+            Center(
+              child: Text(
+                user.name,
+                style: TextStyle(
+                    fontSize: 20,
+                    fontStyle: FontStyle.italic
+                ),
               ),
             ),
-          ),
-          SizedBox(height: 50,),
-          myRow("Email",user.email),
+            SizedBox(height: 50,),
+            myRow("Email",user.email),
 
-          SizedBox(height: 30,),
-          myRow("Gender",user.gender),
-          SizedBox(height: 30,),
-          myRow("Credit Balance",user.credits),
-          SizedBox(height: 30,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              FlatButton.icon(
-                  onPressed: () async{
-                   dynamic result= await AuthServices().signOut();
-                   if(result!=null){
-                     Fluttertoast.showToast(msg: result.toString(),toastLength: Toast.LENGTH_LONG);
-                   }else{
-                     Fluttertoast.showToast(msg: "Logout successful",toastLength: Toast.LENGTH_LONG);
+            SizedBox(height: 30,),
+            myRow("Gender",user.gender),
+            SizedBox(height: 30,),
+            myRow("Credit Balance",user.credits),
+            SizedBox(height: 30,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FlatButton.icon(
+                    onPressed: () async{
+                     dynamic result= await AuthServices().signOut();
+                     if(result!=null){
+                       Fluttertoast.showToast(msg: result.toString(),toastLength: Toast.LENGTH_LONG);
+                     }else{
+                       Fluttertoast.showToast(msg: "Logout successful",toastLength: Toast.LENGTH_LONG);
 
-                   }
-                  },
-                  icon: Icon(
-                      Icons.settings_power,
-                    color: Colors.white,
-                  ),
-                  label: Text(
-                      "Logout",
-                    style: TextStyle(
-                      color: Colors.white
+                     }
+                    },
+                    icon: Icon(
+                        Icons.settings_power,
+                      color: Colors.white,
                     ),
-                  ),
-                  color: Colors.brown[900]
-              )
-            ],
-          )
-        ],
+                    label: Text(
+                        "Logout",
+                      style: TextStyle(
+                        color: Colors.white
+                      ),
+                    ),
+                    color: Colors.brown[900]
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
